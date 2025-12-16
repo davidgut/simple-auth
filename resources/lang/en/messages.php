@@ -1,0 +1,20 @@
+<?php
+
+return [
+    'sign_up' => 'Sign Up',
+    'create_account' => 'Create an account',
+    'get_started_with' => 'Get started with :app',
+    'name' => 'Name',
+    'email' => 'Email',
+    'password' => 'Password',
+    'create_account_action' => 'Create account',
+    'already_have_account' => 'Already have an account?',
+    'sign_in' => 'Sign in',
+    'login' => 'Login',
+    'welcome_back' => 'Welcome back',
+    'sign_in_to_account' => 'Sign in to your account',
+    'remember_me' => 'Remember me',
+    'dont_have_account' => "Don't have an account?",
+    'magic_link_intro' => "We'll email you a magic link to sign in",
+    'send_magic_link' => 'Send magic link',
+];
