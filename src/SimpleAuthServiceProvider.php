@@ -40,6 +40,13 @@ class SimpleAuthServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'simple-auth');
 
         $this->registerRoutes();
+
+        \Illuminate\Auth\Notifications\ResetPassword::createUrlUsing(function ($notifiable, $token) {
+            return route('simple-auth.password.reset', [
+                'token' => $token,
+                'email' => $notifiable->getEmailForPasswordReset(),
+            ]);
+        });
     }
 
     protected function registerRoutes(): void

@@ -8,17 +8,17 @@
     <link href="{{ asset('vendor/simple-auth/simple-auth.css') }}" rel="stylesheet">
 </head>
 
-<body class="bg-gray-50 flex items-center justify-center min-h-screen p-6">
-    <div class="w-full max-w-sm">
+<body class="flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-xs">
         <!-- Logo -->
-        <div class="text-center mb-8">
+        <div class="mb-8">
             <a href="/" class="inline-flex items-center gap-3">
                 <span class="font-semibold text-xl text-gray-900">{{ config('app.name') }}</span>
             </a>
         </div>
 
         <!-- Magic Link Form -->
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+        <div>
             <h1 class="text-lg font-semibold text-gray-900 mb-1">@lang('simple-auth::messages.welcome_back')</h1>
             <p class="text-sm text-gray-500 mb-6">@lang('simple-auth::messages.magic_link_intro')</p>
 
@@ -54,7 +54,7 @@
         </div>
 
         <!-- Signup Link -->
-        <p class="text-center text-sm text-gray-500 mt-6">
+        <p class="text-sm text-gray-500 mt-6">
             @lang('simple-auth::messages.dont_have_account')
             <a href="{{ route('simple-auth.signup') }}"
                 class="text-gray-600 hover:text-gray-900 font-medium">@lang('simple-auth::messages.sign_up')</a>

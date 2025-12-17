@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@lang('simple-auth::messages.sign_up') - {{ config('app.name') }}</title>
+    <title>@lang('simple-auth::messages.reset_password') - {{ config('app.name') }}</title>
     <link href="{{ asset('vendor/simple-auth/simple-auth.css') }}" rel="stylesheet">
 </head>
 
@@ -17,30 +17,20 @@
             </a>
         </div>
 
-        <!-- Signup Form -->
-        <h1 class="text-lg font-semibold text-gray-900 mb-1">@lang('simple-auth::messages.create_account')</h1>
-        <p class="text-sm text-gray-500 mb-6">
-            @lang('simple-auth::messages.get_started_with', ['app' => config('app.name')])
-        </p>
+        <!-- Reset Password Form -->
+        <h1 class="text-lg font-semibold text-gray-900 mb-1">@lang('simple-auth::messages.reset_password')</h1>
 
-        <form method="POST" action="{{ route('simple-auth.signup') }}" class="space-y-4">
+        <form method="POST" action="{{ route('simple-auth.password.update') }}" class="space-y-4">
             @csrf
 
-            <div>
-                <label for="name"
-                    class="block text-sm font-medium text-gray-900 mb-1.5">@lang('simple-auth::messages.name')</label>
-                <input type="text" id="name" name="name" value="{{ old('name') }}" required autofocus
-                    class="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                    placeholder="Your name">
-                @error('name')
-                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                @enderror
-            </div>
+            <!-- Password Reset Token -->
+            <input type="hidden" name="token" value="{{ $token }}">
 
             <div>
                 <label for="email"
                     class="block text-sm font-medium text-gray-900 mb-1.5">@lang('simple-auth::messages.email')</label>
-                <input type="email" id="email" name="email" value="{{ old('email') }}" required
+                <input type="email" id="email" name="email" value="{{ old('email', $request->email) }}" required
+                    autofocus
                     class="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                     placeholder="you@example.com">
                 @error('email')
@@ -59,18 +49,24 @@
                 @enderror
             </div>
 
-            <button type="submit"
-                class="w-full bg-gray-900 hover:bg-gray-800 text-white py-2.5 px-4 rounded-lg text-sm font-medium transition-colors">
-                @lang('simple-auth::messages.create_account_action')
-            </button>
-        </form>
+            <div>
+                <label for="password_confirmation"
+                    class="block text-sm font-medium text-gray-900 mb-1.5">@lang('simple-auth::messages.confirm_password')</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" required
+                    class="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
+                    placeholder="••••••••">
+                @error('password_confirmation')
+                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
 
-        <!-- Login Link -->
-        <p class="text-sm text-gray-500 mt-6">
-            @lang('simple-auth::messages.already_have_account')
-            <a href="{{ route('simple-auth.login') }}"
-                class="text-gray-600 hover:text-gray-900 font-medium">@lang('simple-auth::messages.sign_in')</a>
-        </p>
+            <div class="flex items-center justify-end">
+                <button type="submit"
+                    class="w-full bg-gray-900 hover:bg-gray-800 text-white py-2.5 px-4 rounded-lg text-sm font-medium transition-colors">
+                    @lang('simple-auth::messages.reset_password')
+                </button>
+            </div>
+        </form>
     </div>
 </body>
 

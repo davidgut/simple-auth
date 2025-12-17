@@ -5,7 +5,7 @@ A flexible, drop-in authentication package for Laravel applications, featuring M
 ## Features
 
 - **Magic Link Authentication**: Secure, passwordless login via email.
-- **Password Authentication**: Traditional email/password flow.
+- **Password Authentication**: Traditional email/password flow with Forgot Password functionality.
 - **Security First**: Rate limiting, timing attack protection, and secure URL signing.
 - **Agnostic Views**: Clean, unstyled Blade views (Tailwind-ready classes) that inherit your app's design.
 - **Internationalization**: Fully translatable UI strings.
@@ -75,6 +75,10 @@ The package registers the following routes automatically:
 - `GET /signup` - Signup page
 - `POST /signup` - Process signup
 - `POST /logout` - Logout
+- `GET /forgot-password` - Request password reset link
+- `POST /forgot-password` - Send password reset link
+- `GET /reset-password/{token}` - Reset password form
+- `POST /reset-password` - Update password
 
 ### Views
 

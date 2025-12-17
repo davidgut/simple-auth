@@ -17,4 +17,11 @@ return [
     'dont_have_account' => "Don't have an account?",
     'magic_link_intro' => "We'll email you a magic link to sign in",
     'send_magic_link' => 'Send magic link',
+    'forgot_password' => 'Forgot your password?',
+    'forgot_password_instruction' => 'Enter your email address and we will send you a link to reset your password.',
+    'send_reset_link' => 'Send password reset link',
+    'reset_password' => 'Reset password',
+    'confirm_password' => 'Confirm password',
+    'back_to_login' => 'Back to login',
+    'reset' => 'Reset',
 ];
